@@ -4,7 +4,7 @@ def initialize_n_and_colored_paper():
     color_paper = [list(map(int, input().split())) for _ in range(n)]
 
 
-def get_from_divided_paper(x,y,n):
+def get_from_color_paper(x,y,n):
     color = color_paper[x][y]
     
     for i in range(x,x+n):
@@ -15,19 +15,19 @@ def get_from_divided_paper(x,y,n):
         
             
 
-def get_the_number_of_white_confetti_and_blue_confetti(x,y,n):
+def solution(x,y,n):
     global white,blue
-    square_color  = get_from_divided_paper(x,y,n)
+    square_color  = get_from_color_paper(x,y,n)
     
     if square_color == 0 : white +=1 
     
     elif square_color == 1: blue +=1 
         
     else : 
-        get_the_number_of_white_confetti_and_blue_confetti(x, y, n // 2)                   # 1사분면
-        get_the_number_of_white_confetti_and_blue_confetti(x, y + n // 2, n // 2)          # 2사분면
-        get_the_number_of_white_confetti_and_blue_confetti(x + n // 2, y, n // 2)          # 3사분면
-        get_the_number_of_white_confetti_and_blue_confetti(x + n // 2, y + n // 2, n // 2) # 4사분면
+        solution(x, y, n // 2)                   # 1사분면
+        solution(x, y + n // 2, n // 2)          # 2사분면
+        solution(x + n // 2, y, n // 2)          # 3사분면
+        solution(x + n // 2, y + n // 2, n // 2) # 4사분면
     
     
 n = 0
@@ -37,7 +37,7 @@ initialize_n_and_colored_paper()
 
 white = 0
 blue = 0
-get_the_number_of_white_confetti_and_blue_confetti(0,0,n)
+solution(0,0,n)
 print(white)
 print(blue)
 

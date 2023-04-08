@@ -1,4 +1,4 @@
-def initialize_n_and_colored_paper():
+def initialize_n_and_color_paper():
     global n,color_paper
     n = int(input())
     color_paper = [list(map(int, input().split())) for _ in range(n)]
@@ -32,7 +32,7 @@ def solution(x,y,n):
     
 n = 0
 color_paper = []
-initialize_n_and_colored_paper()
+initialize_n_and_color_paper()
 
 
 white = 0

@@ -35,14 +35,13 @@ class Case:
         self.__solve()
 
     def __solve(self):
-        paper = self.__paper
         try:
-            color = paper.get_color()
+            color = self.__paper.get_color()
             self.__counts[color] += 1
         except Paper.NotSingleColorException:
-            papers = paper.cut()
-            for p in papers:
-                case = Case(p)
+            papers = self.__paper.cut()
+            for paper in papers:
+                case = Case(paper)
                 counts = case.get_counts()
                 self.__counts[0] += counts[0]
                 self.__counts[1] += counts[1]

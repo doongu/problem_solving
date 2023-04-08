@@ -4,7 +4,7 @@ def initialize_n_and_colored_paper():
     color_paper = [list(map(int, input().split())) for _ in range(n)]
 
 
-def get_from_color_paper(x,y,n):
+def get_square_color_from_color_paper(x,y,n):
     color = color_paper[x][y]
     
     for i in range(x,x+n):
@@ -17,7 +17,7 @@ def get_from_color_paper(x,y,n):
 
 def solution(x,y,n):
     global white,blue
-    square_color  = get_from_color_paper(x,y,n)
+    square_color  = get_square_color_from_color_paper(x,y,n)
     
     if square_color == 0 : white +=1 
     
